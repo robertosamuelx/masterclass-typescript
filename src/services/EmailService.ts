@@ -14,7 +14,11 @@ interface IMail {
     message: IMailMessage;
 }
 
-class EmailService {
+interface IEmailService {
+    sendMail(mail: IMail): void;
+}
+
+class EmailService implements IEmailService {
     sendMail({ to, message }: IMail) {
         console.log(`email enviado para ${to.name}: ${message.subject}`);
     }
